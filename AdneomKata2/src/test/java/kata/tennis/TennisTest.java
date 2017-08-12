@@ -37,6 +37,16 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Love-Thirty");
 	}
 	
+	@Test
+	public void retourneThirtyAllSiDeuxPointPartout(){
+		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+		match.premierJoueurMarquePoint();
+		match.premierJoueurMarquePoint();
+		match.deuxiemeJoueurMarquePoint();
+		match.deuxiemeJoueurMarquePoint();
+		assertEquals(match.retourneScore(), "Thirty all");
+	}
+	
 	
 
 }

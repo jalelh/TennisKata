@@ -16,6 +16,8 @@ public class Tennis {
 		
 		if((scorePremierJoueur==scoreDeuxiemeJoueur) && (scorePremierJoueur==1)) {
 			return "Fifteen all";
+		}else if((scorePremierJoueur==scoreDeuxiemeJoueur) && (scorePremierJoueur==2)) {
+			return "Thirty all";
 		}else if(scorePremierJoueur==1 && scoreDeuxiemeJoueur==0) {
 			return "Fifteen-Love";
 		}else if((scorePremierJoueur==0) && (scoreDeuxiemeJoueur==2)) {
