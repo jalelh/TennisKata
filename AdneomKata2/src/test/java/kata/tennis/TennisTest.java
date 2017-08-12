@@ -56,6 +56,12 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Deuce");		
 	}
 	
+	@Test
+	public void retourneDeuceSiEgaliteEtAuMoinsTroisPointsPartout() {
+		pointsDesJoueurs(4, 4);
+		assertEquals(match.retourneScore(), "Deuce");		
+	}
+	
 	
 	
 	
