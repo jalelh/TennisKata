@@ -37,11 +37,11 @@ public class Tennis {
 	}
 	
 	private boolean deuxiemeJoueuraGagne() {
-		return scoreDeuxiemeJoueur == 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+2;
+		return scoreDeuxiemeJoueur >= 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+2;
 	}
 
 	private boolean premierJoueuraGagne() {
-		return scorePremierJoueur == 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+2;
+		return scorePremierJoueur >= 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+2;
 	}
 
 	private boolean scoreDeuce() {
