@@ -71,6 +71,20 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Advantage "+ joueur2);
 	}
 	
+	@Test
+	public void retournePremierJoueurGagne()
+	{
+		pointsDesJoueurs(4, 2);
+		assertEquals(match.retourneScore(), joueur1 + " Wins");
+	}
+	
+	@Test
+	public void retourneDeuxiemeJoueurGagne()
+	{
+		pointsDesJoueurs(0, 4);
+		assertEquals(match.retourneScore(), joueur2 + " Wins");
+	}
+	
 	
 	
 	private void pointsDesJoueurs(int pointsPremierJoueur, int pointsDeuxiemeJoueur) {

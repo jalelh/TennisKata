@@ -14,6 +14,12 @@ public class Tennis {
 	
 	public String retourneScore() {
 		
+		if (premierJoueuraGagne()) {
+			return nomPremierJoueur + " Wins";
+		}else if (deuxiemeJoueuraGagne()) {
+			return nomDeuxiemeJoueur + " Wins";
+		}
+		
 		if (avantagePremierJoueur()) {
 			return "Advantage " + nomPremierJoueur;
 		}else if (avantageDeuxiemeJoueur()) {
@@ -28,6 +34,14 @@ public class Tennis {
 		}else {
 			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
 		}
+	}
+	
+	private boolean deuxiemeJoueuraGagne() {
+		return scoreDeuxiemeJoueur == 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+2;
+	}
+
+	private boolean premierJoueuraGagne() {
+		return scorePremierJoueur == 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+2;
 	}
 
 	private boolean scoreDeuce() {
