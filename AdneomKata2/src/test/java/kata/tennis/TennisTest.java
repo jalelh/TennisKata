@@ -44,6 +44,12 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Forty-Love");
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testtempScorePasseExeption(){
+		pointsDesJoueurs(4, -1);
+		match.retourneScore();
+	}
+	
 	
 	
 	private void pointsDesJoueurs(int pointsPremierJoueur, int pointsDeuxiemeJoueur) {
