@@ -20,5 +20,13 @@ public class TennisTest {
 		match.premierJoueurMarquePoint();
 		assertEquals(match.retourneScore(), "Fifteen-Love");		
 	}
+	
+	@Test
+	public void retourneFifteenAllSiUnPointPartout(){
+		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+		match.premierJoueurMarquePoint();
+		match.deuxiemeJoueurMarquePoint();
+		assertEquals(match.retourneScore(), "Fifteen all");
+	}
 
 }
