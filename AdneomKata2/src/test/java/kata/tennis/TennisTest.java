@@ -50,6 +50,13 @@ public class TennisTest {
 		match.retourneScore();
 	}
 	
+	@Test
+	public void retourneDeuceSiTroisPointsPartout() {
+		pointsDesJoueurs(3, 3);
+		assertEquals(match.retourneScore(), "Deuce");		
+	}
+	
+	
 	
 	
 	private void pointsDesJoueurs(int pointsPremierJoueur, int pointsDeuxiemeJoueur) {

@@ -15,6 +15,9 @@ public class Tennis {
 	public String retourneScore() {
 		
 		if(scorePremierJoueur == scoreDeuxiemeJoueur) {
+			if (scorePremierJoueur == 3) {
+				return "Deuce";
+			}
 			return descriptionDeScore(scorePremierJoueur) + " all";
 		}else {
 			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
