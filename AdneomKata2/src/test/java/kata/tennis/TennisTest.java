@@ -10,8 +10,15 @@ public class TennisTest {
 	public void retourneLoveAllSiNouveauMatch()
 	{	
 		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
-		assertEquals(match.retourneScore(), "Love all");
-		
+		assertEquals(match.retourneScore(), "Love all");	
+	}
+	
+	@Test
+	public void retourneFifteenLoveSiPremierJoueurMarque()
+	{
+		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+		match.premierJoueurMarquePoint();
+		assertEquals(match.retourneScore(), "Fifteen-Love");		
 	}
 
 }
