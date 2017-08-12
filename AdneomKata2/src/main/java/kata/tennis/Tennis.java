@@ -22,7 +22,9 @@ public class Tennis {
 			return "Fifteen-Love";
 		}else if((scorePremierJoueur==0) && (scoreDeuxiemeJoueur==2)) {
 			return "Love-Thirty";
-		}
+		}else if((scorePremierJoueur==3) && (scoreDeuxiemeJoueur==0)) {
+			return "Forty-Love";
+  		}
 		return "Love all";
 	}
 	

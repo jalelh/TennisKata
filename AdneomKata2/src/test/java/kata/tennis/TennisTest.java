@@ -38,6 +38,12 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Thirty all");
 	}
 	
+	@Test
+	public void retourneFortyLoveSiPremierJoueurGagneTroisPremiersPoints(){
+		pointsDesJoueurs(3, 0);
+		assertEquals(match.retourneScore(), "Forty-Love");
+	}
+	
 	
 	
 	private void pointsDesJoueurs(int pointsPremierJoueur, int pointsDeuxiemeJoueur) {
