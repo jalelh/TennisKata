@@ -14,6 +14,12 @@ public class Tennis {
 	
 	public String retourneScore() {
 		
+		if (scorePremierJoueur >= 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+1) {
+			return "Advantage " + nomPremierJoueur;
+		}else if (scoreDeuxiemeJoueur >= 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+1) {
+			return "Advantage " + nomDeuxiemeJoueur;
+		}
+		
 		if(scorePremierJoueur == scoreDeuxiemeJoueur) {
 			if (scorePremierJoueur >= 3) {
 				return "Deuce";

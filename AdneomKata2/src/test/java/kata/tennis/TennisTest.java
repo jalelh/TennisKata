@@ -6,7 +6,10 @@ import org.junit.Test;
 
 public class TennisTest {
 	
-	Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+	private static final String joueur1 = "Rafael Nadal";
+	private static final String joueur2 = "Roger Federer";
+	
+	Tennis match = new Tennis(joueur1, joueur2);
 
 	@Test
 	public void retourneLoveAllSiNouveauMatch(){	
@@ -44,12 +47,6 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Forty-Love");
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testtempScorePasseExeption(){
-		pointsDesJoueurs(4, -1);
-		match.retourneScore();
-	}
-	
 	@Test
 	public void retourneDeuceSiTroisPointsPartout() {
 		pointsDesJoueurs(3, 3);
@@ -62,6 +59,17 @@ public class TennisTest {
 		assertEquals(match.retourneScore(), "Deuce");		
 	}
 	
+	@Test
+	public void retourneAdvantagePremierJoueur(){
+		pointsDesJoueurs(7, 6);
+		assertEquals(match.retourneScore(), "Advantage "+ joueur1);
+	}
+	
+	@Test
+	public void retourneAdvantageDeuxiemeJoueur(){
+		pointsDesJoueurs(5, 6);
+		assertEquals(match.retourneScore(), "Advantage "+ joueur2);
+	}
 	
 	
 	
