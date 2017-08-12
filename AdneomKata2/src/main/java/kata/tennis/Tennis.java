@@ -18,12 +18,10 @@ public class Tennis {
 			return nomJoueurAyantMeilleurScore() + " Wins";
 		}else if (existeAvantage()) {
 			return "Advantage " + nomJoueurAyantMeilleurScore();
-		}else 
-			if(scorePremierJoueur == scoreDeuxiemeJoueur) {
-				if (scoreDeuce()) {
-					return "Deuce";
-				}
-			return descriptionDeScore(scorePremierJoueur) + " all";
+		}else if (scoreDeuce()) {
+			return "Deuce";
+		}else if(scorePremierJoueur == scoreDeuxiemeJoueur) {
+				return descriptionDeScore(scorePremierJoueur) + " all";
 		}else {
 			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
 		}
@@ -38,7 +36,7 @@ public class Tennis {
 	}
 
 	private boolean scoreDeuce() {
-		return scorePremierJoueur >= 3;
+		return scorePremierJoueur >= 3 && scorePremierJoueur == scoreDeuxiemeJoueur;
 	}
 
 	private boolean avantageDeuxiemeJoueur() {
