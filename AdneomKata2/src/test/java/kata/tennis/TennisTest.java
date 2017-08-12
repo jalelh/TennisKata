@@ -5,25 +5,22 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TennisTest {
+	
+	Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
 
 	@Test
-	public void retourneLoveAllSiNouveauMatch()
-	{	
-		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+	public void retourneLoveAllSiNouveauMatch(){	
 		assertEquals(match.retourneScore(), "Love all");	
 	}
 	
 	@Test
-	public void retourneFifteenLoveSiPremierJoueurMarque()
-	{
-		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+	public void retourneFifteenLoveSiPremierJoueurMarque(){
 		match.premierJoueurMarquePoint();
 		assertEquals(match.retourneScore(), "Fifteen-Love");		
 	}
 	
 	@Test
 	public void retourneFifteenAllSiUnPointPartout(){
-		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
 		match.premierJoueurMarquePoint();
 		match.deuxiemeJoueurMarquePoint();
 		assertEquals(match.retourneScore(), "Fifteen all");
@@ -31,20 +28,25 @@ public class TennisTest {
 	
 	@Test
 	public void retourneLoveThirtySiDeuxiemeJoueurGagneDeuxPremiersPoints(){
-		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
-		match.deuxiemeJoueurMarquePoint();
-		match.deuxiemeJoueurMarquePoint();
+		pointsDesJoueurs(0, 2);
 		assertEquals(match.retourneScore(), "Love-Thirty");
 	}
 	
 	@Test
 	public void retourneThirtyAllSiDeuxPointPartout(){
-		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
-		match.premierJoueurMarquePoint();
-		match.premierJoueurMarquePoint();
-		match.deuxiemeJoueurMarquePoint();
-		match.deuxiemeJoueurMarquePoint();
+		pointsDesJoueurs(2, 2);
 		assertEquals(match.retourneScore(), "Thirty all");
+	}
+	
+	
+	
+	private void pointsDesJoueurs(int pointsPremierJoueur, int pointsDeuxiemeJoueur) {
+		for (int i = 0; i < pointsPremierJoueur; i++) {
+			match.premierJoueurMarquePoint();
+		}
+		for (int i = 0; i < pointsDeuxiemeJoueur; i++) {
+			match.deuxiemeJoueurMarquePoint();
+		}
 	}
 	
 	
