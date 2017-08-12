@@ -7,8 +7,11 @@ import org.junit.Test;
 public class TennisTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void retourneLoveAllSiNouveauMatch()
+	{	
+		Tennis match = new Tennis("Rafael Nadal", "Roger Federer");
+		assertEquals(match.retourneScore(), "Love all");
+		
 	}
 
 }
