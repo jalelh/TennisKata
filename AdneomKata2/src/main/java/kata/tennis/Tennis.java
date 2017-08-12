@@ -14,20 +14,32 @@ public class Tennis {
 	
 	public String retourneScore() {
 		
-		if (scorePremierJoueur >= 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+1) {
+		if (avantagePremierJoueur()) {
 			return "Advantage " + nomPremierJoueur;
-		}else if (scoreDeuxiemeJoueur >= 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+1) {
+		}else if (avantageDeuxiemeJoueur()) {
 			return "Advantage " + nomDeuxiemeJoueur;
 		}
 		
 		if(scorePremierJoueur == scoreDeuxiemeJoueur) {
-			if (scorePremierJoueur >= 3) {
+			if (scoreDeuce()) {
 				return "Deuce";
 			}
 			return descriptionDeScore(scorePremierJoueur) + " all";
 		}else {
 			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
 		}
+	}
+
+	private boolean scoreDeuce() {
+		return scorePremierJoueur >= 3;
+	}
+
+	private boolean avantageDeuxiemeJoueur() {
+		return scoreDeuxiemeJoueur >= 4 && scoreDeuxiemeJoueur >= scorePremierJoueur+1;
+	}
+
+	private boolean avantagePremierJoueur() {
+		return scorePremierJoueur >= 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+1;
 	}
 	
 	public void premierJoueurMarquePoint() {
