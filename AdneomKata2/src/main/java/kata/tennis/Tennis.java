@@ -14,18 +14,11 @@ public class Tennis {
 	
 	public String retourneScore() {
 		
-		if((scorePremierJoueur==scoreDeuxiemeJoueur) && (scorePremierJoueur==1)) {
-			return "Fifteen all";
-		}else if((scorePremierJoueur==scoreDeuxiemeJoueur) && (scorePremierJoueur==2)) {
-			return "Thirty all";
-		}else if(scorePremierJoueur==1 && scoreDeuxiemeJoueur==0) {
-			return "Fifteen-Love";
-		}else if((scorePremierJoueur==0) && (scoreDeuxiemeJoueur==2)) {
-			return "Love-Thirty";
-		}else if((scorePremierJoueur==3) && (scoreDeuxiemeJoueur==0)) {
-			return "Forty-Love";
-  		}
-		return "Love all";
+		if(scorePremierJoueur == scoreDeuxiemeJoueur) {
+			return descriptionDeScore(scorePremierJoueur) + " all";
+		}else {
+			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
+		}
 	}
 	
 	public void premierJoueurMarquePoint() {
@@ -34,6 +27,22 @@ public class Tennis {
 	
 	public void deuxiemeJoueurMarquePoint() {
 		scoreDeuxiemeJoueur++;
+	}
+	
+	private String descriptionDeScore(int tempScore) {
+		switch (tempScore) {
+			case 0:
+				return "Love";
+			case 1: 
+				return "Fifteen";
+			case 2:
+				return "Thirty";
+			case 3:
+				return "Forty";
+			default : 
+				throw new IllegalArgumentException("Score doit etre entre 0 et 3 : " + tempScore);
+		}
+		
 	}
 
 
