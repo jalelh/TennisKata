@@ -14,22 +14,15 @@ public class Tennis {
 	
 	public String retourneScore() {
 		
-		if (premierJoueuraGagne()) {
-			return nomPremierJoueur + " Wins";
-		}else if (deuxiemeJoueuraGagne()) {
-			return nomDeuxiemeJoueur + " Wins";
-		}
-		
-		if (avantagePremierJoueur()) {
-			return "Advantage " + nomPremierJoueur;
-		}else if (avantageDeuxiemeJoueur()) {
-			return "Advantage " + nomDeuxiemeJoueur;
-		}
-		
-		if(scorePremierJoueur == scoreDeuxiemeJoueur) {
-			if (scoreDeuce()) {
-				return "Deuce";
-			}
+		if (existeGagnant()) {
+			return nomJoueurAyantMeilleurScore() + " Wins";
+		}else if (existeAvantage()) {
+			return "Advantage " + nomJoueurAyantMeilleurScore();
+		}else 
+			if(scorePremierJoueur == scoreDeuxiemeJoueur) {
+				if (scoreDeuce()) {
+					return "Deuce";
+				}
 			return descriptionDeScore(scorePremierJoueur) + " all";
 		}else {
 			return descriptionDeScore(scorePremierJoueur) + "-" + descriptionDeScore(scoreDeuxiemeJoueur);
@@ -54,6 +47,30 @@ public class Tennis {
 
 	private boolean avantagePremierJoueur() {
 		return scorePremierJoueur >= 4 && scorePremierJoueur >= scoreDeuxiemeJoueur+1;
+	}
+	
+	private boolean existeGagnant() {
+		if (premierJoueuraGagne() || deuxiemeJoueuraGagne()) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean existeAvantage() {
+		if (avantagePremierJoueur() || avantageDeuxiemeJoueur()) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	private String nomJoueurAyantMeilleurScore() {
+		if (scorePremierJoueur > scoreDeuxiemeJoueur) {
+			return nomPremierJoueur;
+		} else {
+			return nomDeuxiemeJoueur;
+		}
 	}
 	
 	public void premierJoueurMarquePoint() {
